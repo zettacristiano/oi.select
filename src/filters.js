@@ -36,10 +36,10 @@ angular.module('oi.select')
         var i, j, isFound, output, output1 = [], output2 = [], output3 = [], output4 = [];
 
         if (query) {
-            query = oiSelectEscape(query).toLocaleLowerCase();
+            query = oiSelectEscape(query).toString().toLocaleLowerCase();
 
             for (i = 0, isFound = false; i < input.length; i++) {
-                isFound = getLabel(input[i]).toLocaleLowerCase().match(new RegExp(query));
+                isFound = getLabel(input[i]).toString().toLocaleLowerCase().match(new RegExp(query));
 
                 if (!isFound && options && (options.length || options.fields)) {
                     for (j = 0; j < options.length; j++) {
@@ -54,7 +54,7 @@ angular.module('oi.select')
                 }
             }
             for (i = 0; i < output1.length; i++) {
-                if (getLabel(output1[i]).toLocaleLowerCase().match(new RegExp('^' + query))) {
+                if (getLabel(output1[i]).toString().toLocaleLowerCase().match(new RegExp('^' + query))) {
                     output2.push(output1[i]);
                 } else {
                     output3.push(output1[i]);
